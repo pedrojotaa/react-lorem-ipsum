@@ -1,6 +1,6 @@
 import "./index.css";
 import { useState } from "react";
-import data from './data'
+import data from "./data";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,7 +8,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hello world");
+    setText(data);
   };
 
   return (
@@ -28,7 +28,9 @@ function App() {
         </button>
       </form>
       <article className="lorem-text">
-        <p>text</p>
+        {text.map((text, index) => {
+          return <p key={index}>{text}</p>;
+        })}
       </article>
     </section>
   );
